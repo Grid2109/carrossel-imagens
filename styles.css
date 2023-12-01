@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+.box {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.box:before {
+    content: '';
+    width: 100%;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background-image: linear-gradient(180deg, transparent, #000000);
+}
+
+.box .slide-images {
+    width: 100%;
+    height: 100%;
+}
+
+.box .slide-images img {
+    width: 100%;
+    height: 120%;
+    object-fit: cover;
+}
+
+
+
+.slide-thumbnail {
+    position: absolute;
+    z-index: 4;
+    bottom: 30px;
+    left: 50%;
+    max-width: 900px;
+    width: 100%;
+    transform: translateX(-50%); /*essa configuração mais o left garante as thumbs no centro*/
+   
+}
+
+.slide-thumbnail .swiper-slide {
+    width: 100%;
+    height: 100px;
+    border-radius: 8px; /*a borda redonda funcionou por conta do overflow-hidden*/
+    overflow: hidden;
+    cursor: pointer;
+    filter: grayscale(100%);
+    transition: filter .5s ease;
+}
+
+.slide-thumbnail .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide-thumbnail .swiper-slide-thumb-active { /*essa classe eu encontro inspecionando o swiper*/
+  filter: grayscale(0);
+}
+
